@@ -35,7 +35,7 @@ backup_parser =  subparser.add_parser('backup', help='Backup epas database. Exam
 backup_parser.add_argument('-a', '--account', help='Choose an AWS account. eg: "staging", "production", or "development"')
 backup_parser.add_argument('-r', '--region', help='Choose an AWS region. eg: "us-east-1", "us-east-2", "us-west-1", or "us-west-2" ')
 backup_parser.add_argument('-c', '--customer', help='Choose a customer. eg: "oneok", "phillips66", or "merck".')
-backup_parser.add_argument('-e', '--environment', help='Choose an AWS environment. eg: "staging", "production", or "development"'))
+backup_parser.add_argument('-e', '--environment', help='Choose an AWS environment. eg: "staging", "production", or "development"')
 backup_parser.set_defaults(func=backup_epas)
 
 # print(args.func)
