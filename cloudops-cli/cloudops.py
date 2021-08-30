@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import argparse
 from todo.auth import set_environment_variables, validate_aws_credentials, delete_environment_variables
 from download_releases import download_releases
@@ -28,7 +28,6 @@ update_parser.set_defaults(func=update_deployment)
 download_parser = subparser.add_parser('download', help='Downloads releases needed')
 download_parser.add_argument('-r', '--releases', nargs='+', required=True, help='Takes multiple arguments for downloading releases. Example: janus:release-4.8.9.0-1 epas-connector:release-4.12.3.3-2')
 download_parser.set_defaults(func=download_releases)
-args = parser.parse_args()
 
 ######################## BACKUP ARGUMENTS #####################
 backup_parser =  subparser.add_parser('backup', help='Backup epas database. Example: main.py backup staging us-east-1 oneok development')
@@ -38,6 +37,7 @@ backup_parser.add_argument('-c', '--customer', help='Choose a customer. eg: "one
 backup_parser.add_argument('-e', '--environment', help='Choose an AWS environment. eg: "staging", "production", or "development"')
 backup_parser.set_defaults(func=backup_epas)
 
+args = parser.parse_args()
 # print(args.func)
 args.func(**vars(args))
 ######################## ARGPARSE SECTION END #######################
